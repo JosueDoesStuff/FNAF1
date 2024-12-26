@@ -17,6 +17,10 @@
       text-align: center;
       margin: 0;
       padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
   }
   #bloctxt {
 	  border-left-width: 5px;
@@ -24,9 +28,9 @@
 	  border-left-color: #F00;
 	  padding-left: 10px;
 	  position: absolute;
-	  left: 50%%;
+	  left: 50%;
 	  width: 600px;
-	  margin-left: -260px
+	  margin-left: -260px;
   }
 </style>
 <head>
@@ -42,22 +46,16 @@
 
 	<script>
 	   	// Detection of old browsers that do not support the canvas element
-		// Falls back to a default page
 	    if (!document.createElement("canvas").getContext)
 	    {
 			window.open("http://www.clickteam.com/html5-fallback", "_self");
 		}
 	</script>
 
-
   	<!-- EXTRASOURCES -->
-    <!-- Loads the Javascript code...-->
     <script src="src/Runtime.js"></script>
 
     <script>
-
-	// Detection of when the html file is ran locally.
-	// You can remove this code for the final version
 	if (window.location.protocol == "file:")
 	{
 		document.write('<div id="bloctxt">');
@@ -69,28 +67,22 @@
 		document.write('</div>');
 		throw new error("Cannot run application");
 	}
-
   </script>
 </head>
 
 <body>
 
 <div style="display: inline-block; -webkit-user-select: none; text-align: left;">
-    <canvas id="MMFCanvas" width="1280" height="720">
+    <canvas id="MMFCanvas" width="960" height="720">
     	Your browser does not support Canvas.
     </canvas>
 </div>
 
-
     <script>
         // RUNTIMESTART
-        // This is where the HTML5 runtime is actually started
         window.addEventListener("load", windowLoaded, false);
         function windowLoaded()
         {
-            // Calls the runtime
-            // First parameter : name of the canvas element
-            // Second parameter : path to the cch file. Images and sounds must lay beside this file
             new Runtime("MMFCanvas", "resources/FNAF1HTML5.cch");
         }
         // RUNTIMESTARTEND
